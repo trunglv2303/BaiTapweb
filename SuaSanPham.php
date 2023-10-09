@@ -1,3 +1,6 @@
+
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
+
 <?php
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -27,6 +30,8 @@ if (!isset($_SESSION['user_id'])) {
     $TenSanPham = $_GET['TenSanPham'];
     $SoLuong = $_GET['SoLuong'];
     $Gia = $_GET['Gia'];
+    $Image = $_GET['Image'];
+    $Mota = $_GET['mota'];
     $IDDanhMuc = $_GET['IDDanhMuc'];
     //  $con = mysqli_connect($servername, $username, $pass, $database);
     ?>
@@ -41,6 +46,19 @@ if (!isset($_SESSION['user_id'])) {
             <input type="number" name="SoLuong" value="<?php echo  $SoLuong ?>"><br>
             <label>Giá:</label><br>
             <input type="number" name="Gia" value="<?php echo  $Gia ?>"><br>
+            <label for="">Ảnh</label>
+            <input type="file" name="Image" value="<?php echo    $Image ?>"><br>
+            <textarea id="editor" name="mota" >
+            <?php echo    $Mota ?>
+    </textarea>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+            <input type="number" name="Gia" value="<?php echo     $Mota ?>"><br>
             <label>IDDanhMuc:</label><br>
             <select name="IDDanhMuc" id=""> 
 
